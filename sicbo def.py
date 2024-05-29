@@ -1,48 +1,55 @@
 from random import randint
 from time import sleep
-from datetime import datetime 
+from datetime import datetime
 
 print ('selamat datang di permainan roll dadu tanpa batas ')
 print ('\t','[••• silahkan bermain •••]','\n')
          
-main = int (input('Masuk kan nilai berapakali ingin bermain = '))
-t = int(input ('jeda waktu = '))
+main = int (input(' Berapakali ingin bermain = '))
+wjd = int(input (' waktu jeda [ menit : detik ] = '))
 
-def sc (): # rool dic
+def logo ():# logo pertama
+    print ('\t',' ---------------------')
+    print ('\t','|  {••••BERMAIN••••}  |')
+    print ('\t',' ---------------------',)
+    print ('\t','  [ PUTARAN DADU KE ]','\n','\t','\t',f" [ {i} ]",'\n')
+
+def game (): # game rool dic
     a = randint (1,6 )
     b = randint (1,6 )
     c = randint (1,6 )
     hasil =int (a + b +c)
     print('\t','hasilnya adalah =','{',a,',',b,',',c,'}')
-    print('\t','total = ',hasil)
+    print('\t','total = ','(',hasil,')')
     
     if hasil <= 10:
-         print ('\t','katagori : ( KECIL )','\n')
+         print ('\t','katagori = ( KECIL )','\n')
          
     elif hasil >= 11:
-         print ('\t','katagori : ( BESAR )','\n') 
+         print ('\t','katagori = ( BESAR )','\n') 
          
-def mundur(t):# waktu mundur 
-    while t:
-        mins, secs = divmod(t, 60) 
+def mundur (wjd):# waktu mundur 
+    while wjd:
+        mins, secs = divmod(wjd, 60) 
         timer = '{:02d}:{:02d}'.format(mins, secs)
-        print('\t','WAKTU : ','( ',timer,' )', end="\r")
+        print('\t','WAKTU = ','( ',timer,' )', end="\r")
         sleep(1)
-        t -= 1
+        wjd -= 1
 
-def waktu(): #info waktu
+def waktu (): # info waktu
     e=datetime.now()
-    print ('\t',"¤[ hari tanggal tahun:  = %s/%s/%s ]¤" % (e.day, e.month, e.year))
-    print ('\t',"¤[ waktu sekarang: = %s:%s:%s ]¤" % (e.hour, e.minute, e.second))
+    print ('\t',"¤[ tanggal/bulan/tahun  = %s/%s/%s ]¤" % (e.day, e.month, e.year))
+    print ('\t',"¤[ jam : menit : detik = %s:%s:%s ]¤" % (e.hour, e.minute, e.second))
+    
+def batas ():#batas bawah
+    print('\t','=+×+=+×+=+×+=+×+=+×+=+×+=+×+=+×+=+×+=','\t')
     print('\t')
-
-
+    print('\t')
+    
 for i in range (main):
-    print ('\t','---------------------')
-    print ('\t','| {••••BERMAIN••••} |')
-    print ('\t','---------------------','\n')
-    print ('\t',f"putaran dadu ke = {i}")
-    sc()
-    mundur(t)
-    waktu()
+    logo ()
+    game ()
+    mundur (wjd)
+    waktu ()
+    batas ()
     
