@@ -1,5 +1,6 @@
 from random import randint
-from time import sleep 
+from time import sleep
+from datetime import datetime 
 
 print ('selamat datang di permainan roll dadu tanpa batas ')
 print ('\t','[••• silahkan bermain •••]','\n')
