@@ -29,6 +29,13 @@ def mundur(t):# waktu mundur
         sleep(1)
         t -= 1
 
+def waktu(): #info waktu
+    e=datetime.now()
+    print ('\t',"¤[ hari tanggal tahun:  = %s/%s/%s ]¤" % (e.day, e.month, e.year))
+    print ('\t',"¤[ waktu sekarang: = %s:%s:%s ]¤" % (e.hour, e.minute, e.second))
+    print('\t')
+
+
 for i in range (main):
     print ('\t','---------------------')
     print ('\t','| {••••BERMAIN••••} |')
@@ -36,4 +43,5 @@ for i in range (main):
     print ('\t',f"putaran dadu ke = {i}")
     sc()
     mundur(t)
+    waktu()
     
