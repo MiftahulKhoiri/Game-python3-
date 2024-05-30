@@ -8,7 +8,7 @@ print ('\t','[••• silahkan bermain •••]','\n')
 main = int (input(' Berapakali ingin bermain = '))
 wjd = int(input (' waktu jeda [ menit : detik ] = '))
 
-def logo ():# logo pertama
+def logo ():#logo pertama
     print ('\t',' ---------------------')
     print ('\t','|  {••••BERMAIN••••}  |')
     print ('\t',' ---------------------',)
@@ -18,7 +18,9 @@ def game (): # game rool dic
     a = randint (1,6 )
     b = randint (1,6 )
     c = randint (1,6 )
+   
     hasil =int (a + b +c)
+    
     print('\t','hasilnya adalah =','{',a,',',b,',',c,'}')
     print('\t','total = ','(',hasil,')')
     
@@ -26,7 +28,18 @@ def game (): # game rool dic
          print ('\t','katagori = ( KECIL )','\n')
          
     elif hasil >= 11:
-         print ('\t','katagori = ( BESAR )','\n') 
+         print ('\t','katagori = ( BESAR )','\n')
+         
+def game1 () :
+          d = randint ( 3,18 ) #angka random
+          hasil1 = d
+          print ('\t','hasil 1 =',d)
+          
+          if hasil1 <= 10:
+           print ('\t','katagori1 = ( KECIL )','\n')
+          
+          elif hasil1 >= 11:
+           print ('\t','katagori1 = ( BESAR )','\n')
          
 def mundur (wjd):# waktu mundur 
     while wjd:
@@ -36,7 +49,7 @@ def mundur (wjd):# waktu mundur
         sleep(1)
         wjd -= 1
 
-def waktu (): # info waktu
+def waktu (): #info waktu
     e=datetime.now()
     print ('\t',"¤[ tanggal/bulan/tahun  = %s/%s/%s ]¤" % (e.day, e.month, e.year))
     print ('\t',"¤[ jam : menit : detik = %s:%s:%s ]¤" % (e.hour, e.minute, e.second))
@@ -49,6 +62,7 @@ def batas ():#batas bawah
 for i in range (main):
     logo ()
     game ()
+    game1()
     mundur (wjd)
     waktu ()
     batas ()
